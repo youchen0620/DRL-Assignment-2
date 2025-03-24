@@ -2,6 +2,7 @@ import gym
 import numpy as np
 import time
 import random
+import math
 
 from xml.etree import ElementTree as ET
 import importlib.util
