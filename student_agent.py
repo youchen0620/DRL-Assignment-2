@@ -231,10 +231,23 @@ class Game2048Env(gym.Env):
         # If the simulated board is different from the current board, the move is legal
         return not np.array_equal(self.board, temp_board)
 
+with open("value.pkl", "rb") as f:
+    approximator = pickle.load(f)
+
 def get_action(state, score):
     env = Game2048Env()
-    return random.choice([0, 1, 2, 3]) # Choose a random action
     
-    # You can submit this random agent to evaluate the performance of a purely random strategy.
+    action_values = []
+    for action in legal_moves:
+        # Simulate the action
+        temp_env = copy.deepcopy(env)
+        next_state, _, _, _ = temp_env.step(action)
+        # Evaluate the resulting state
+        value = approximator.value(next_state)
+        action_values.append((action, value))
+
+    best_action = max(action_values, key=lambda x: x[1])[0]
+
+    return best_action
 
 
