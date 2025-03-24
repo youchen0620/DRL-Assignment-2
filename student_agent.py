@@ -236,6 +236,8 @@ with open("value.pkl", "rb") as f:
 
 def get_action(state, score):
     env = Game2048Env()
+
+    legal_moves = [a for a in range(4) if env.is_move_legal(a)]
     
     action_values = []
     for action in legal_moves:
