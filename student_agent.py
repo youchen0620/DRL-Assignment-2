@@ -231,11 +231,18 @@ class Game2048Env(gym.Env):
         # If the simulated board is different from the current board, the move is legal
         return not np.array_equal(self.board, temp_board)
 
+    def set_board(self, state):
+        self.board = state
+
 with open("value.pkl", "rb") as f:
     approximator = pickle.load(f)
 
+env = Game2048Env()
+
 def get_action(state, score):
-    env = Game2048Env()
+    global env
+
+    env.set_board(state)
 
     legal_moves = [a for a in range(4) if env.is_move_legal(a)]
     
