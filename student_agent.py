@@ -339,7 +339,7 @@ class NTupleApproximator:
 sys.modules['__main__'].NTupleApproximator = NTupleApproximator
 
 with open("value.pkl", "rb") as f:
-    approximator = pickle.load(f.read())
+    approximator = pickle.loads(f.read())
 
 env = Game2048Env()
 
