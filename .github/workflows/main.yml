@@ -20,11 +20,10 @@ jobs:
 
     - name: Download files
       run: |
-        fileid="1ySSUFl5CzpU2wg1XG8LBz5aYAGHD56gx"
-        filename="value.zip"
+        fileid="1CE5qSy4tVawTHmMtVjtPTJD1gj8IlnFH"
+        filename="value.pkl"
         curl -L -c /tmp/cookies "https://drive.google.com/uc?export=download&id=$fileid" -o $filename
         curl -L -b /tmp/cookies "https://drive.google.com/uc?export=download&confirm=$(curl -s -L -c /tmp/cookies "https://drive.google.com/uc?export=download&id=$fileid" | grep -o 'confirm=[^&]*' | sed 's/confirm=//')" -o $filename
-        unzip value.zip
 
     - name: 1. Creating virtual env
       uses: actions/setup-python@v4
