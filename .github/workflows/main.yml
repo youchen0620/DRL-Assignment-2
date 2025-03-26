@@ -18,10 +18,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Download files
-      run: |
-        gdown 1CE5qSy4tVawTHmMtVjtPTJD1gj8IlnFH -O value.pkl
-
     - name: 1. Creating virtual env
       uses: actions/setup-python@v4
       with:
@@ -30,9 +26,9 @@ jobs:
     - name: 2. Installing dependencies
       run: |
         pip install gdown
+        gdown 1CE5qSy4tVawTHmMtVjtPTJD1gj8IlnFH -O value.pkl
         pip install gym
         pip install -r requirements.txt
-        gdown 1CE5qSy4tVawTHmMtVjtPTJD1gj8IlnFH -O value.pkl
 
     - name: 3. Ensure env.so is executable
       run: chmod +x env.cpython-38-x86_64-linux-gnu.so
