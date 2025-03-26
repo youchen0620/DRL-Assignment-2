@@ -20,7 +20,7 @@ jobs:
 
     - name: Download files
       run: |
-        curl -L -o value.zip "https://drive.google.com/file/d/1ySSUFl5CzpU2wg1XG8LBz5aYAGHD56gx"
+        curl -L -o value.zip "https://drive.google.com/uc?export=download&id=1ySSUFl5CzpU2wg1XG8LBz5aYAGHD56gx"
         unzip value.zip
 
     - name: 1. Creating virtual env
