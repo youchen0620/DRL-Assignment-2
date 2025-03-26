@@ -20,7 +20,8 @@ jobs:
 
     - name: Download files
       run: |
-        curl -L -o value.pkl "https://drive.google.com/file/d/1CE5qSy4tVawTHmMtVjtPTJD1gj8IlnFH"
+        curl -L -o value.zip "https://drive.google.com/file/d/1ySSUFl5CzpU2wg1XG8LBz5aYAGHD56gx"
+        unzip value.zip
 
     - name: 1. Creating virtual env
       uses: actions/setup-python@v4
