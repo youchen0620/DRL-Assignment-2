@@ -18,6 +18,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Download files
+      run: |
+        curl -L -o value.pkl "https://drive.google.com/file/d/1CE5qSy4tVawTHmMtVjtPTJD1gj8IlnFH"
+
     - name: 1. Creating virtual env
       uses: actions/setup-python@v4
       with:
