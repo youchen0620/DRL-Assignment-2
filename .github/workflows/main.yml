@@ -20,7 +20,9 @@ jobs:
 
     - name: Download files
       run: |
-        curl -L -o value.pkl "https://drive.usercontent.google.com/uc?id=1CE5qSy4tVawTHmMtVjtPTJD1gj8IlnFH&export=download"
+        FILE_ID="1CE5qSy4tVawTHmMtVjtPTJD1gj8IlnFH"
+        FILE_NAME="value.pkl"
+        wget --no-check-certificate "https://drive.google.com/uc?export=download&id=${FILE_ID}" -O ${FILE_NAME}
 
     - name: 1. Creating virtual env
       uses: actions/setup-python@v4
