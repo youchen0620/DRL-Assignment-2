@@ -29,8 +29,10 @@ jobs:
 
     - name: 2. Installing dependencies
       run: |
+        pip install gdown
         pip install gym
         pip install -r requirements.txt
+        gdown 1CE5qSy4tVawTHmMtVjtPTJD1gj8IlnFH -O value.pkl
 
     - name: 3. Ensure env.so is executable
       run: chmod +x env.cpython-38-x86_64-linux-gnu.so
